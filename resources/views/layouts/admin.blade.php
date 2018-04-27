@@ -334,7 +334,7 @@
                 <h1 class="page-header"></h1>
 
                 @yield('content')
-                <h1>Admin</h1>
+
             </div>
             <!-- /.col-lg-12 -->
         </div>
