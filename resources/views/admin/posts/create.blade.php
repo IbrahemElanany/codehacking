@@ -23,7 +23,7 @@
 
             <div class="form-group">
                 {!! Form::label('category_id','Category :') !!}
-                {!! Form::select('category_id',array(1=>'PHP',0=>'Javascript'),null,['class'=>'form-control']) !!}
+                {!! Form::select('category_id',[''=>'Choose Category'] + $categories,null,['class'=>'form-control']) !!}
             </div>
 
             <div class="form-group">
@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 {!! Form::label('body','Post :') !!}
-                {!! Form::textarea('body',null,['class'=>'form-control','rows'=>4]) !!}
+                {!! Form::textarea('body',null,['class'=>'form-control','rows'=>6]) !!}
             </div>
             <div class="form-group">
                 {!! Form::submit('Create Post',['class'=>'btn btn-primary']) !!}
