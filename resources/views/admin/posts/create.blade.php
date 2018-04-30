@@ -15,7 +15,7 @@
     <div class="row">
 
         {!! Form::open(['method'=>'POST','action'=>'AdminPostsController@store','files'=>true]) !!}
-            <h1>Add Post</h1>
+
             <div class="form-group">
                 {!! Form::label('title','Title :') !!}
                 {!! Form::text('title',null,['class'=>'form-control']) !!}

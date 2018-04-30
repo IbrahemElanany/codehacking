@@ -9,15 +9,26 @@
 
     {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
 
+    {{csrf_field()}}
+
         <div class="form-group">
             {!! Form::label('name','Name :') !!}
             {!! Form::text('name',null,['class'=>'form-control']) !!}
+
         </div>
+
+        {{--@if ($errors->has('name'))--}}
+            {{--<div class="alert alert-danger">--}}
+                {{--<strong>{{ $errors->first('name') }}</strong>--}}
+            {{--</div>--}}
+        {{--@endif--}}
 
         <div class="form-group">
             {!! Form::label('email','Email :') !!}
             {!! Form::email('email',null,['class'=>'form-control']) !!}
+
         </div>
+
 
         <div class="form-group">
             {!! Form::label('role_id','Role :') !!}

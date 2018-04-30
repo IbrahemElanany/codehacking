@@ -54,8 +54,8 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-
-                    <span class="fa fa-user fa-fw"></span>{{ Auth::user()->name }} <span class="caret"></span>
+                    <img height="30" width="30" src="{{Auth::user()->photo ? Auth::user()->photo->file : '/images/place.jpg'}}" alt="" class="img-circle ">
+                    {{ Auth::user()->name }} <span class="caret"></span>
 
                 </a>
                 <ul class="dropdown-menu dropdown-user">
@@ -156,11 +156,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/categories">All Categories</a>
+                                <a href="{{route('admin.categories.index')}}">All Categories</a>
                             </li>
 
                             <li>
-                                <a href="/categories/create">Create Category</a>
+                                <a href="{{route('admin.categories.index')}}">Create Category</a>
                             </li>
 
                         </ul>
