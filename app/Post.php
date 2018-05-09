@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //
+
+
+
     protected $fillable=[
         'user_id',
         'category_id',
@@ -14,6 +17,7 @@ class Post extends Model
         'title',
         'body'
     ];
+
 
 
 
@@ -35,6 +39,13 @@ class Post extends Model
 
     }
 
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+
+    public function placeholder(){
+        return "http://placehold.it/900x300";
+    }
 
 
 }

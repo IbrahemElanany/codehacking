@@ -35,6 +35,8 @@
            <th>Category</th>
            <th>Title</th>
            <th>Content</th>
+           <th>Live View</th>
+           <th>Comments View</th>
            <th>Created</th>
            <th>Updated</th>
 
@@ -45,11 +47,13 @@
                 @foreach($posts as $post)
                      <tr>
                          <td>{{$SrNum++}}</td>
-                       <td><img height="50"  src="{{$post->photo ? $post->photo->file : '/images/holder.jpg'}}" alt=""></td>
+                       <td><img height="50"  src="{{$post->photo ? $post->photo->file : $post->placeholder()}}" alt=""></td>
                        <td><a href="{{route('admin.posts.edit',$post->id)}}">{{str_limit($post->user->name,15)}}</a></td>
                        <td>{{$post->category ? str_limit($post->category->name,15) : 'Un Categorized'}}</td>
                        <td>{{str_limit($post->title,20)}}</td>
                        <td>{{str_limit($post->body,30)}}</td>
+                       <td><a target="_blank" href="{{route('home.post',$post->id)}}">View Post</a></td>
+                       <td><a href="{{route('admin.comments.show',$post->id)}}">View comments</a></td>
                        <td>{{$post->created_at->diffForHumans()}}</td>
                        <td>{{$post->updated_at->diffForHumans()}}</td>
                      </tr>
@@ -58,6 +62,12 @@
             @endif
       </tbody>
     </table>
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+            {{$posts->render()}}
+        </div>
+    </div>
 
 
 @stop
